@@ -9,78 +9,80 @@
 <script src="~/Scripts/DateTimePicker.js"></script>
 <script src="~/Scripts/DateTimePicker-i18n-zh-TW.js"></script>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
+<section class="section_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
 
 
-            @using (Html.BeginForm())
-            {
-                @Html.AntiForgeryToken()
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
 
-                <div class="form-horizontal">
+                    <div class="form-horizontal">
 
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-                    <div class="form-group row">
-                        @Html.LabelFor(model => model.mealservice_no, htmlAttributes: new { @class = "col-md-3 col-form-label" })
-                        <div class="col-md-9">
-                            @Html.DropDownListFor(model => model.mealservice_no, new SelectList(Model.mealServiceList, "mealservice_no", "mealservice_name", Model.mealservice_no), "請選擇", new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.Table_no, "", new { @class = "text-danger" })
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.mealservice_no, htmlAttributes: new { @class = "col-md-3 col-form-label" })
+                            <div class="col-md-9">
+                                @Html.DropDownListFor(model => model.mealservice_no, new SelectList(Model.mealServiceList, "mealservice_no", "mealservice_name", Model.mealservice_no), "請選擇", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.mealservice_no, "", new { @class = "text-danger" })
+                            </div>
                         </div>
-                    </div>
 
 
-                    <div class="form-group row" id="table" style="display:none">
-                        @Html.LabelFor(model => model.Table_no, htmlAttributes: new { @class = "col-md-3 control-label" })
-                        <div class="col-md-9">
-                            @Html.EditorFor(model => model.Table_no, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Table_no, "", new { @class = "text-danger" })
+                        <div class="form-group row" id="table" style="display:none">
+                            @Html.LabelFor(model => model.Table_no, htmlAttributes: new { @class = "col-md-3 control-label" })
+                            <div class="col-md-9">
+                                @Html.EditorFor(model => model.Table_no, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Table_no, "", new { @class = "text-danger" })
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group row" id="ordertime" style="display:none">
-                        @Html.LabelFor(model => model.SchedulOrderTime, htmlAttributes: new { @class = "col-md-3 control-label" })
-                        <div class="col-md-9" >
-                       
-                            @Html.EditorFor(model => model.SchedulOrderTime, new { htmlAttributes = new { @class = "form-control",@readonly="readonly" } })
-                            @Html.ValidationMessageFor(model => model.SchedulOrderTime, "", new { @class = "text-danger" })
-                           
-                            <div id="dtBox"></div>
+                        <div class="form-group row" id="ordertime" style="display:none">
+                            @Html.LabelFor(model => model.SchedulOrderTime, htmlAttributes: new { @class = "col-md-3 control-label" })
+                            <div class="col-md-9">
+
+                                @Html.EditorFor(model => model.SchedulOrderTime, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.SchedulOrderTime, "", new { @class = "text-danger" })
+
+                                <div id="dtBox"></div>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group row" id="addr" style="display:none">
-                        @Html.LabelFor(model => model.receive_address, htmlAttributes: new { @class = "col-md-3 control-label " })
-                        <div class="col-md-9">
-                            <div id="twzipcode" class="row form-group">
-                                <div data-role="county" class="col-md-5">
+                        <div class="form-group row" id="addr" style="display:none">
+                            @Html.LabelFor(model => model.receive_address, htmlAttributes: new { @class = "col-md-3 control-label " })
+                            <div class="col-md-9">
+                                <div id="twzipcode" class="row form-group">
+                                    <div data-role="county" class="col-md-5">
+                                    </div>
+                                    <div data-role="district" class="col-md-7">
+                                    </div>
+
                                 </div>
-                                <div data-role="district" class="col-md-7">
-                                </div>
+                                @Html.EditorFor(model => model.receive_address, new { htmlAttributes = new { @class = "form-control", placeholder = "請輸入地址" } })
+                                @Html.ValidationMessageFor(model => model.receive_address, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-9 ">
+                                <a href="/Product/CategoryList/HOT" class="btn btn-primary btn-block form-group">
+                                    繼續購物
+                                </a>
+                                <input type="submit" id="checkout" value="前往結帳" class="btn btn-danger btn-block " />
 
                             </div>
-                            @Html.EditorFor(model => model.receive_address, new { htmlAttributes = new { @class = "form-control", placeholder = "請輸入地址" } })
-                            @Html.ValidationMessageFor(model => model.receive_address, "", new { @class = "text-danger" })
                         </div>
-                    </div>
-                    <div class="row ">
-                        <div class="col-md-3"></div>
-                        <div class="col-md-9 ">
-                            <a href="/Product/CategoryList/HOT" class="btn btn-primary btn-block form-group">
-                                繼續購物
-                            </a>
-                            <input type="submit" id="checkout" value="前往結帳" class="btn btn-danger btn-block " />
 
-                        </div>
                     </div>
-
-                </div>
-            }
+                }
+            </div>
         </div>
     </div>
-</div>
+</section>
 
 
 <script>
@@ -126,7 +128,7 @@
         $("#dtBox").DateTimePicker({
 
             "language": "zh-TW",
-            "minuteInterval":"5"
+            "minuteInterval": "5"
         });
 
     });

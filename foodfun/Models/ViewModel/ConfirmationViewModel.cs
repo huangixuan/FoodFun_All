@@ -14,6 +14,7 @@ namespace foodfun.Models
         [Display(Name ="用餐方式")]
         public string mealservice_name { get; set; }
 
+        [Display(Name = "付款方式")]
         public List<Payments> PaymentsList { get; set; }
 
 

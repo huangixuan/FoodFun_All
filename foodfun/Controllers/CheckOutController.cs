@@ -33,8 +33,22 @@ namespace foodfun.Controllers
         [HttpPost]
         public ActionResult MealService(MealServiceViewModel model)
         {
-            if (!ModelState.IsValid)
+            bool valid = true;
+            if (model.mealservice_no == "A" && model.Table_no == null)
             {
+                valid = false;
+            }
+            else if (model.mealservice_no == "B" && model.SchedulOrderTime== null)
+            {
+                valid = false;
+            }
+            else if(model.mealservice_no == "C" && model.SchedulOrderTime == null&&model.receive_address==null)
+            {
+                valid = false;
+            }
+            if (!ModelState.IsValid && valid)
+            {
+
                 if (model.mealServiceList == null)
                 {
                     model.mealServiceList = db.MealService.OrderBy(m => m.mealservice_no).ToList();
@@ -105,15 +119,16 @@ namespace foodfun.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public ActionResult Confirmation(ConfirmationViewModel model)
+        public JsonResult Confirmation(ConfirmationViewModel model)
         {
+            int result = 0;
             if (!ModelState.IsValid)
             {
                 if (model.PaymentsList == null)
                 {
                     model.PaymentsList = db.Payments.OrderBy(m => m.paid_no).ToList();
                 }
-                return View(model);
+                return Json(result, JsonRequestBehavior.AllowGet);
             }
             if (model.Order.paid_no == "P01") Cart.AddNewOrder(model, false);
             else Cart.AddNewOrder(model, true);
@@ -123,7 +138,7 @@ namespace foodfun.Controllers
 
 
 
-            return RedirectToAction("Index", "Home");
+            return Json(a, JsonRequestBehavior.AllowGet);
         }
     }
 }

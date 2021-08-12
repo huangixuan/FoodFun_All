@@ -85,10 +85,11 @@ namespace foodfun.Areas.Admin.Controllers
         [LoginAuthorize(RoleList = "Admin,Staff")]
         public JsonResult ResetPassword(ResetPasswordViewModel model)
         {
-            //if (!@ModelState.IsValid) return View(model);
-
-
             bool result = false;
+      
+            if (!@ModelState.IsValid) return Json(result,JsonRequestBehavior.AllowGet);
+
+
             Users user = db.Users.Where(m => m.account_name == UserAccount.UserNo).FirstOrDefault();
             if (user != null)
             {

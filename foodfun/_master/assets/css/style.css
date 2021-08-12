@@ -10980,7 +10980,7 @@ input:focus {
 
 .confirmation_part .single_confirmation_details {
     background-color: #e8e8e8;
-    padding: 35px 40px;
+    padding: 30px 20px;
     margin-bottom: 50px
 }
 
@@ -10997,17 +10997,18 @@ input:focus {
 }
 
 .confirmation_part .single_confirmation_details h4 {
-    font-size: 18px;
     font-weight: 500;
-    color: "Roboto",sans-serif;
     text-transform: capitalize;
-    margin-bottom: 16px
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #ddd;
+    text-align:center;
 }
 
 .confirmation_part .single_confirmation_details ul li {
     position: relative;
     text-transform: capitalize;
-    padding-left: 55%;
+    padding-left: 35%;
     margin-bottom: 3px
 }
 
@@ -11030,9 +11031,7 @@ input:focus {
     text-transform: capitalize
 }
 
-    .confirmation_part .order_details_iner h3 {
-        font-size: 18px
-    }
+
 
     .confirmation_part .order_details_iner .table thead th {
         color: "Roboto",sans-serif;

@@ -37,7 +37,7 @@ namespace foodfun.Models
             [Display(Name = "訂單狀態編碼")]
             public string orderstatus_no { get; set; }
 
-            [Required]
+            [Required(ErrorMessage = "請選擇用餐方式")]
             [Display(Name = "用餐方式編碼")]
             public string mealservice_no { get; set; }
 
@@ -49,6 +49,7 @@ namespace foodfun.Models
             [Display(Name = "桌號")]
             public string table_no { get; set; }
 
+            [Required(ErrorMessage = "請選擇付款方式")]
             [Display(Name ="付款方式編碼")]
             public string paid_no { get; set; }
 
