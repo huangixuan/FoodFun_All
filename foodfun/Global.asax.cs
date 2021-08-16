@@ -18,12 +18,12 @@ namespace foodfun
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            SqlDependency.Start(ConfigurationManager.ConnectionStrings["CustomerConnection"].ConnectionString);
+            //SqlDependency.Start(ConfigurationManager.ConnectionStrings["CustomerConnection"].ConnectionString);
         }
 
         protected void Application_End()
         {
-            SqlDependency.Stop(ConfigurationManager.ConnectionStrings["CustomerConnection"].ConnectionString);
+            //SqlDependency.Stop(ConfigurationManager.ConnectionStrings["CustomerConnection"].ConnectionString);
         }
     }
 }
