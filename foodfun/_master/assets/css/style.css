@@ -3202,7 +3202,7 @@ main {
 
 
 .slider-height2 {
-    background-image: url(/img/Contacts.jpg);
+   
     min-height: 500px;
     background-repeat: no-repeat;
     background-position: center center;
@@ -3332,9 +3332,6 @@ main {
     }
 }
 
-.slide-bg {
-    background-image: url(/img/index.jpg)
-}
 
 .slider-active button.slick-arrow {
     position: absolute;

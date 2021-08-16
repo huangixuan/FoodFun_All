@@ -149,7 +149,7 @@
         var data = $("#ConfirmForm").serialize();
         $.ajax({
             type: 'post',
-            url: "/CheckOut/Confirmation",
+            url: "@Url.Action("Confirmation", "CheckOut")",
             data: data,
             success: function (result) {
                 if (result == 0) {

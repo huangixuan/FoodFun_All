@@ -15,7 +15,7 @@
                             <ul id="navigation">
                                 @if (UserAccount.Role == EnumList.LoginRole.Guest || UserAccount.Role == EnumList.LoginRole.Member)
                                 {
-                                    <li><a href='@Url.Action("CategoryList", "Product")'>餐點訂購</a></li>
+                                    <li><a href='@Url.Action("CategoryList", "Product",new { id="HOT"})'>餐點訂購</a></li>
                                     <li><a href="@Url.Action("About","Home")">關於我們</a></li>
                                     <li><a href="@Url.Action("Contact","Home")">聯絡我們</a></li>
 
@@ -95,11 +95,9 @@
 </header>
 <!-- Header End -->
 
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="~/Scripts/jquery.signalR-2.4.2.js"></script>
-<script src="~/signalr/hubs" type="text/javascript"></script>
+
+<script src="@Url.Content("~/scripts/jquery.signalR-2.4.2.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/signalr/hubs")" ></script>
 
 <script type="text/javascript">
     var Popup;
@@ -121,7 +119,7 @@
 
             var $tbl = $('#tblInfo');
             $.ajax({
-                url: "/CheckOrder/Get",
+                url: "@Url.Action("Get", "CheckOrder" ,new { area = "" })",
                 type: "GET",
                 dataType: "json",
                 success: function (data) {
@@ -134,7 +132,7 @@
                         )
                         $.each(data.listCus, function (i, model) {
                             $tbl.children("ul").append(
-                                '<li><a class="popup" href="/CheckOrder/GetNewOrder/' + model.order_no + '">' + model.order_no + '</a></li>'
+                                '<li><a class="popup" href="@Url.Action("GetNewOrder", "CheckOrder", new { area = "" })'+'/'+ model.order_no + '">' + model.order_no + '</a></li>'
                             )
                         })
                     }
@@ -157,7 +155,7 @@
                         buttons: {
                             '訂單確認': function () {
                                 $.ajax({
-                                    url: "/CheckOrder/ConfirmOrder",
+                                    url: "@Url.Action("ConfirmOrder", "CheckOrder",new {area="" })",
                                     data: { id: id},
                                     type: "GET",
                                     dataType: "json",

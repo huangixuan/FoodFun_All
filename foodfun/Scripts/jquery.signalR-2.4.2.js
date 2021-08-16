@@ -1,3 +1,5 @@
+/// <reference path="jquery-3.4.1.js" />
+/// <reference path="jquery-3.4.1.js" />
 /* jquery.signalR.core.js */
 /*global window:false */
 /*!
@@ -9,8 +11,8 @@
  *
  */
 
-/// <reference path="Scripts/jquery-1.6.4.js" />
-/// <reference path="jquery.signalR.version.js" />
+ ///<reference path="jquery-3.4.1.js" />
+///<reference path="jquery.signalR.version.js" />
 (function ($, window, undefined) {
 
     var resources = {

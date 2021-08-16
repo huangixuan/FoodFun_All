@@ -61,7 +61,7 @@
                                         @Html.DisplayFor(modelItem => item.orderstatus_name)
                                     </td>
                                     <td>
-                                        <input type="button" value=@(item.orders.ispaided.Value ? "已結" : " 結帳 ") class="btn btn-danger ispaided" onclick="location.href = '/Staff/StaffProd_Check/OnlineCheckout/?id=@item.orders.order_no'">
+                                        <input type="button" value=@(item.orders.ispaided.Value ? "已結" : " 結帳 ") class="btn btn-danger ispaided" onclick="location.href =' @Url.Action("OnlineCheckout","StaffProd_Check",new {id=item.orders.order_no})'">
                                     </td>
                                     <td>
                                         <input type="button" value=@item.change_status class="btn btn-warning change-status" name="@item.orders.orderstatus_no">
