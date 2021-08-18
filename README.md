@@ -27,6 +27,8 @@
 ## 分支協作圖
 [GitHub Branch](https://github.com/huangixuan/FoodFun_All/network "this")
 
-
 ## 螢幕截圖
 ![消費者畫面](https://github.com/huangixuan/FoodFun_All/blob/master/%E5%B0%88%E6%A1%88%E6%88%AA%E5%9C%96-miwa/%E6%B6%88%E8%B2%BB%E8%80%85.png "消費者畫面")
+![管理者畫面](https://github.com/huangixuan/FoodFun_All/blob/master/%E5%B0%88%E6%A1%88%E6%88%AA%E5%9C%96-miwa/%E7%AE%A1%E7%90%86%E8%80%85.png "管理者畫面")
+
+
