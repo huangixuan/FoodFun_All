@@ -512,6 +512,7 @@
     <Content Include="Areas\Admin\Views\About\Create.cshtml" />
     <Content Include="Areas\Admin\Views\About\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Company\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\Foodfun2021 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\localhost__webdebloy.pubxml" />
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
     <Content Include="Scripts\Chart.js" />
