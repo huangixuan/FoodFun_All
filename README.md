@@ -13,7 +13,7 @@
 
 
 ##參訪網址
-[foodfun2021.azurewebsites.net](https://foodfun2021.azurewebsites.net")
+https://foodfun2021.azurewebsites.net
 
 
 ###### 消費者帳號
